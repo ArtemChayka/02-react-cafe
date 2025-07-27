@@ -17,7 +17,7 @@ return (
 <ul>
                 {dates.map((date) => (
                     <li key={date}>{date}
-                        <button onClick={() => deleteDate(date)}>Delete</button>
+                        <button onClick={() => deleteDate(date)}>Delete add function to delete</button>
                         </li>
                             ))}
 </ul>
