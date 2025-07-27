@@ -1,10 +1,10 @@
 import { useState } from "react";
 import css from "./App.module.css";
-import CafeInfo from "../CafeInfo/CafeInfo";
-import VoteOptions from "../VoteOptions/VoteOptions";
+import CafeInfo from "../components/CafeInfo/CafeInfo";
+import VoteOptions from "../components/VoteOptions/VoteOptions";
 import { Votes, VoteType } from "../types/votes";
-import VoteStats from "../VoteStats/VoteStats";
-import Notification from "../Notification/Notification";
+import VoteStats from "../components/VoteStats/VoteStats";
+import Notification from "../components/Notification/Notification";
 
 export default function App() {
   const [votes, setVotes] = useState<Votes>({
@@ -31,9 +31,9 @@ export default function App() {
   const positiveRate = totalVotes
     ? Math.round((votes.good / totalVotes) * 100)
     : 0;
-  
-  const canReset =totalVotes > 0;
-  
+
+  const canReset = totalVotes > 0;
+
   return (
     <div className={css.app}>
       <CafeInfo />
@@ -42,12 +42,15 @@ export default function App() {
         onReset={resetVotes}
         canReset={canReset}
       />
-      {totalVotes > 0 ? (<VoteStats
-        votes={votes}
-        totalVotes={totalVotes}
-        positiveRate={positiveRate}
-      />): (<Notification/>)}
-      
+      {totalVotes > 0 ? (
+        <VoteStats
+          votes={votes}
+          totalVotes={totalVotes}
+          positiveRate={positiveRate}
+        />
+      ) : (
+        <Notification />
+      )}
     </div>
   );
 }
