@@ -10,7 +10,7 @@
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": false,
+    "verbatimModuleSyntax": true,         // будь який імпорт ТИПІВ має буди с приставкою type; якщо false без type
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
